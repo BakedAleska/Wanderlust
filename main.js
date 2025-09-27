@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path');
+const sHandler = require('./scenarioHandler.js')
 
 if (process.env.NODE_ENV === 'development') {
     try {
@@ -39,6 +40,7 @@ const create_window = () => {
 
 app.whenReady().then(() =>  {
     create_window()
+    sHandler.initializeScenario()
 })
 
 app.on('window-all-closed', () => {
