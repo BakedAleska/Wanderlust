@@ -1,6 +1,6 @@
 const scenariosData = require('./data/scenarios.json');
 
-var prompt =
+var prompt;
 
 function displayData(){
     console.log(JSON.stringify(scenariosData, null, 2));
@@ -25,6 +25,7 @@ function initializeScenario(){
 
     switch(typeSelection){
         case "heroic":
+            
 
     }
     console.log(typeSelection)
