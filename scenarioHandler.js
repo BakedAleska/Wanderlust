@@ -24,8 +24,14 @@ function initializeScenario(){
 
     switch(typeSelection){
         case "heroic":
-            
-
+            prompt = JSON.stringify(scenariosData.scenarios[0].prompts[0].text, null, 2)
+            break;
+        // case "cautious"
+            //prompt =
+           // break;
+        case "community":
+            prompt = JSON.stringify(scenariosData.scenarios[0].prompts[3].text, null, 2)
+            break;
     }
     console.log(typeSelection)
     
