@@ -1,38 +1,27 @@
 // Once the DOM is ready, attach.
 window.addEventListener('DOMContentLoaded', () => {
-  const btn = document.querySelector('.menu-button')
-  if (!btn) return
+  const home_btn = document.querySelector('.menu-button');
+  const scenario_btn = document.querySelector('.rect')
+  const scenarioSection = document.getElementById('scenario');
+  const homeSection = document.getElementById('home');
 
-  btn.addEventListener('click', () => {
-    console.log('renderer: menu-button click detected')
+  if (!btn || !scenarioSection || !homeSection) return;
 
-    showToast('Home clicked')
+  scenarioSection.setAttribute('aria-hidden', 'false');
+  scenarioSection.style.display = '';
+  homeSection.setAttribute('aria-hidden', 'true');
+  homeSection.style.display = 'none';
 
-    if (window.electronAPI && typeof window.electronAPI.homeClick === 'function') {
-      window.electronAPI.homeClick()
-    } else {
-      console.log('Home button clicked (fallback)')
+  home_btn.addEventListener('click', () => {
+    if (scenarioSection && homeSection) {
+      scenarioSection.setAttribute('aria-hidden', 'true');
+      homeSection.setAttribute('aria-hidden', 'false');
+      scenarioSection.style.display = 'none';
+      homeSection.style.display = '';
     }
+  });
+
+  scenario_btn.addEventListener('click', () => {
+    
   })
 })
-
-function showToast(text, ms = 1200) {
-  let container = document.querySelector('.toast-container')
-  if (!container) {
-    container = document.createElement('div')
-    container.className = 'toast-container'
-    document.body.appendChild(container)
-  }
-
-  const toast = document.createElement('div')
-  toast.className = 'toast'
-  toast.textContent = text
-  container.appendChild(toast)
-
-  requestAnimationFrame(() => toast.classList.add('show'))
-
-  setTimeout(() => {
-    toast.classList.remove('show')
-    setTimeout(() => toast.remove(), 200)
-  }, ms)
-}
