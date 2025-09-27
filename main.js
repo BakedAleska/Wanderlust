@@ -4,7 +4,12 @@ const path = require('path');
 if (process.env.NODE_ENV === 'development') {
     try {
         require('electron-reload')(__dirname, {
-            electron: require(require('electron')?.path || 'electron')
+            electron: require(require('electron')?.path || 'electron'),
+            // Watch main.js and index.html explicitly
+            files: [
+                path.join(__dirname, 'main.js'),
+                path.join(__dirname, 'index.html')
+            ]
         })
     } catch (err) {
         console.warn('electron-reload not available:', err.message)
