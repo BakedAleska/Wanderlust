@@ -1,0 +1,41 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', 'Consolas', 'Courier New', monospace;
+}
+
+body {
+  background-color: #222326;
+  color: #fff;
+}
+
+.top-half {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-half {
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.choice-button {
+  height: 55px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.scenario-paragraph {
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  max-width: 45%;
+  letter-spacing: 4px;
+}

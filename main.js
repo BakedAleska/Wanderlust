@@ -19,8 +19,16 @@ if (process.env.NODE_ENV === 'development') {
 const create_window = () => {
     const win = new BrowserWindow({
         width: 800,
-        height: 600
+        height: 600,
+        autoHideMenuBar: true,
+        fullscreen: true,
     })
+
+    try {
+        win.setMenuBarVisibility(false)
+    } catch (err) {}
+
+    win.maximize();
 
     win.loadFile('index.html')
 }
