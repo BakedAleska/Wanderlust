@@ -1,11 +1,10 @@
 const { app, BrowserWindow } = require('electron')
-const { ipcMain } = require('electron')
 const path = require('path');
 
 if (process.env.NODE_ENV === 'development') {
     try {
         require('electron-reload')(__dirname, {
-            electron: require(require('electron')?.path || 'electron'),
+            electron: require('electron').path,
             files: [
                 path.join(__dirname, 'main.js'),
                 path.join(__dirname, 'index.html')
@@ -44,12 +43,4 @@ app.whenReady().then(() =>  {
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
-})
-
-ipcMain.on('home-click', (event) => {
-    console.log('home-click received from renderer')
-})
-
-ipcMain.on('renderer-log', (event, msg) => {
-    console.log('[renderer]', msg)
 })
