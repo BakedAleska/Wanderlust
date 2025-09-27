@@ -1,0 +1,92 @@
+{
+  "scenarios": [
+    {
+      "title": "Hurricane Relief",
+      "description": "Lead an emergency response team in a city devastated by a hurricane. Your choices will determine the direction and impact of your relief efforts.",
+      "categories": [
+        "heroic",
+        "cautious",
+        "community"
+      ],
+      "prompts": [
+        {
+          "id": "hr_p1",
+          "category": "heroic",
+          "text": "A flooded neighborhood is in desperate need of help. How will you approach the rescue?"
+        },
+        {
+          "id": "hr_p2",
+          "category": "logistical",
+          "text": "Resources are running low in the shelters. What's your next move?"
+        },
+        {
+          "id": "hr_p3",
+          "category": "medical",
+          "text": "Injured survivors are arriving faster than medical staff can treat them. What do you prioritize?"
+        },
+        {
+          "id": "hr_p4",
+          "category": "community",
+          "text": "Local volunteers want to help but lack training. How do you involve them?"
+        },
+        {
+          "id": "hr_p5",
+          "category": "strategic",
+          "text": "A second storm is forecasted to hit soon. How do you prepare?"
+        }
+      ],
+      "answers": [
+        {
+          "id": "hr_a1",
+          "category": "heroic",
+          "text": "Lead the rescue personally, risking dangerous conditions."
+        },
+        {
+          "id": "hr_a2",
+          "category": "heroic",
+          "text": "Form a team of volunteer heroes and push into the hardest-hit area."
+        },
+        {
+          "id": "hr_a3",
+          "category": "cautious",
+          "text": "Wait for first responders with proper gear before entering."
+        },
+        {
+          "id": "hr_a4",
+          "category": "logistical",
+          "text": "Coordinate with local authorities to redirect resources."
+        },
+        {
+          "id": "hr_a5",
+          "category": "community",
+          "text": "Organize a community meeting and assign roles."
+        },
+        {
+          "id": "hr_a6",
+          "category": "medical",
+          "text": "Set up a triage tent to prioritize critical patients."
+        },
+        {
+          "id": "hr_a7",
+          "category": "resourceful",
+          "text": "Use social media to crowdsource supplies."
+        },
+        {
+          "id": "hr_a8",
+          "category": "optimistic",
+          "text": "Reassure everyone that help is on the way."
+        },
+        {
+          "id": "hr_a9",
+          "category": "strategic",
+          "text": "Evacuate vulnerable areas before the next storm arrives."
+        },
+        {
+          "id": "hr_a10",
+          "category": "strategic",
+          "text": "Double emergency drills for all shelter staff."
+        }
+      ]
+    }
+  ]
+}
