@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron')
+const { ipcMain } = require('electron')
 const path = require('path');
 
 if (process.env.NODE_ENV === 'development') {
@@ -19,8 +20,21 @@ if (process.env.NODE_ENV === 'development') {
 const create_window = () => {
     const win = new BrowserWindow({
         width: 800,
-        height: 600
+        height: 600,
+        autoHideMenuBar: true,
+        fullscreen: true,
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js'),
+            contextIsolation: true,
+            nodeIntegration: false,
+        }
     })
+
+    try {
+        win.setMenuBarVisibility(false)
+    } catch (err) {}
+
+    win.maximize();
 
     win.loadFile('index.html')
 }
@@ -30,5 +44,13 @@ app.whenReady().then(() =>  {
 })
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit()
+    if (process.platform !== 'darwin') app.quit()
+})
+
+ipcMain.on('home-click', (event) => {
+    console.log('home-click received from renderer')
+})
+
+ipcMain.on('renderer-log', (event, msg) => {
+    console.log('[renderer]', msg)
 })
