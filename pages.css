@@ -9,6 +9,112 @@ body {
   color: #fff;
 }
 
+/* Top menu bar that is always present */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px; /* thin line across top */
+  background: rgba(20,20,20,0.6);
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
+  z-index: 1000;
+  padding: 0 12px 0 8px; /* small left inset so button isn't flush against the viewport edge */
+  backdrop-filter: blur(4px);
+}
+
+/* Ensure main content sits below the fixed menu */
+main#app {
+  padding-top: 48px; /* same as .menu height */
+  box-sizing: border-box;
+}
+
+.menu-button {
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  height: 36px;
+  width: 36px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.menu-button img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+:root {
+  --menu-height: 48px;
+  --icon-color: #ffffff;
+}
+
+main#app {
+  padding-top: var(--menu-height);
+  box-sizing: border-box;
+}
+
+.menu-button {
+  background-color: var(--icon-color);
+  border: none;
+  height: 36px;
+  width: 36px;
+  padding: 4px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-mask: url('assets/home-symbol.png') no-repeat center/contain;
+  -webkit-mask-size: contain;
+  mask: url('assets/home-symbol.png') no-repeat center/contain;
+  mask-size: contain;
+}
+
+.menu-button img {
+  display: none;
+}
+
+.menu-button:hover {
+  opacity: 0.9;
+}
+
+.menu-button:focus {
+  outline: 2px solid rgba(255,255,255,0.9);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.toast-container {
+  position: fixed;
+  top: calc(var(--menu-height) + 8px);
+  right: 12px;
+  z-index: 1100;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  transform-origin: right top;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .top-half {
   height: 50vh;
   display: flex;
