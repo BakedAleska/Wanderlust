@@ -1,17 +1,16 @@
 {
   "devDependencies": {
+    "cross-env": "^10.0.0",
+    "electron": "^38.1.2",
     "electron-reload": "^2.0.0-alpha.1"
-  },
-  "dependencies": {
-    "electron": "^38.1.2"
   },
   "name": "wanderlust",
   "version": "1.0.0",
   "description": "ShellHacks '25 Project.",
   "main": "main.js",
   "scripts": {
-  "start": "electron .",
-  "dev": "NODE_ENV=development electron .",
+    "start": "electron .",
+    "dev": "cross-env NODE_ENV=development electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
