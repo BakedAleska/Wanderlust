@@ -1,6 +1,5 @@
-const { context_bridge, ipc_renderer } = require('electron')
+const { contextBridge, ipcRenderer } = require('electron')
 
-context_bridge.exposeInMainWorld('electronAPI', {
-  homeClick: () => ipc_renderer.send('home-click'),
-  requestMainAction: (data) => ipc_renderer.send('request-mainprocess-action', data)
+contextBridge.exposeInMainWorld('electronAPI', {
+  homeClick: () => ipcRenderer.send('home-click'),
 })

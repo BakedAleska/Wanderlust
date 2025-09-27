@@ -47,19 +47,10 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
 })
 
-// Listen for renderer home click
 ipcMain.on('home-click', (event) => {
     console.log('home-click received from renderer')
-    switch_page()
 })
 
-// Listen for arbitrary actions from renderer
-ipcMain.on('request-mainprocess-action', (event, arg) => {
-    console.log('request-mainprocess-action received from renderer:', arg)
-    switch_page()
-})
-
-// Forward renderer logs to the main process terminal
 ipcMain.on('renderer-log', (event, msg) => {
     console.log('[renderer]', msg)
 })
