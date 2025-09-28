@@ -9,36 +9,35 @@ function displayData(){
 function initializeScenario(){
     const scenarioTypeList = JSON.stringify(scenariosData.scenarios[0].categories, null, 2)
     const n = Math.floor(Math.random() * 3);
+
     let typeSelection;
+    let prompt = JSON.stringify(scenariosData.scenarios[0].prompts, null, 2);
     
     switch (n) {
         case 0:
             typeSelection = "heroic"
+            promptChosen = prompt[0].text;
             break;
         case 1:
             typeSelection = "cautious"
+            promptChosen = prompt[1].text;
             break;
         case 2:
             typeSelection = "community"
+            promptChosen = prompt[2].text;
+            break;
     }
 
-    switch(typeSelection){
-        case "heroic":
-            prompt = JSON.stringify(scenariosData.scenarios[0].prompts[0].text, null, 2)
-            break;
-        // case "cautious"
-            //prompt =
-           // break;
-        case "community":
-            prompt = JSON.stringify(scenariosData.scenarios[0].prompts[3].text, null, 2)
-            break;
-    }
-    console.log(typeSelection)
-    
+    console.log(typeSelection)    
+    return promptChosen
 }
+function renderScenario(selector = '.scenario-paragraph'){
+    const paragraph = document.querySelector('.scenario-paragraph');
 
-
+    paragraph.textContent = promptChosen;
+}
 module.exports = {
     displayData,
-    initializeScenario
+    initializeScenario,
+    renderScenario
 }
