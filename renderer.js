@@ -8,20 +8,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if (!choice_1_btn || !choice_2_btn || !home_btn || !scenarioSection || !homeSection) return;
 
-  scenarioSection.setAttribute('aria-hidden', 'false');
-  scenarioSection.style.display = '';
-  homeSection.setAttribute('aria-hidden', 'true');
-  homeSection.style.display = 'none';
+  scenarioSection.setAttribute('aria-hidden', 'true');
+  scenarioSection.style.display = 'none';
+  homeSection.setAttribute('aria-hidden', 'false');
+  homeSection.style.display = '';
 
-  // On initial load, reset game and generate first scenario
-  window.electronAPI.restartGame().then(() => {
-    window.electronAPI.getScenario().then(({ prompt, choices }) => {
-      document.querySelector('.scenario-paragraph').textContent = prompt;
-      document.getElementById('choice-1').textContent = choices[0];
-      document.getElementById('choice-2').textContent = choices[1];
-      resetChoiceButtons();
-    });
-  });
+  // On initial load, do not start scenario. Wait for user interaction.
 
   home_btn.addEventListener('click', () => {
     scenarioSection.setAttribute('aria-hidden', 'true');
@@ -41,6 +33,14 @@ window.addEventListener('DOMContentLoaded', () => {
       scenarioSection.style.display = '';
       homeSection.setAttribute('aria-hidden', 'true');
       homeSection.style.display = 'none';
+      // Re-initialize particles.js rain effect
+      if (document.getElementById('particles-js')) {
+        fetch('particles-config.json')
+          .then(response => response.json())
+          .then(config => {
+            window.particlesJS('particles-js', config);
+          });
+      }
       window.electronAPI.getScenario().then(({ prompt, choices }) => {
         document.querySelector('.scenario-paragraph').textContent = prompt;
         document.getElementById('choice-1').textContent = choices[0];
