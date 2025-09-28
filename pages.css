@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 html, body {
   height: 100%;
   margin: 0;
@@ -23,12 +24,12 @@ body::-webkit-scrollbar {
   left: 0;
   right: 0;
   height: 48px; /* thin line across top */
-  background: rgba(20,20,20,0.6);
+  background: rgba(51, 52, 56, 0.6);
   display: flex;
   align-items: center;
   box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset;
   z-index: 1000;
-  padding: 0 12px 0 8px; /* small left inset so button isn't flush against the viewport edge */
+  padding: 0 40px 0 8px; /* small left inset so button isn't flush against the viewport edge */
   backdrop-filter: blur(4px);
 }
 
@@ -156,8 +157,50 @@ main#app {
   position: relative;
   width: 300px;
   height: 500px;
-  background: #fff;
+  background: linear-gradient(90deg, #2a282c 0%, #292230 100%);
+  font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', 'Consolas', 'Courier New', monospace;
   overflow: hidden;
+  border: #fff;
+  border-color: #fff;
+  border-radius: 16px;
+  border: 2px solid #5a5661;
+  overflow: hidden;
+}
+
+.rect-title {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', 'Consolas', 'Courier New', monospace;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  background: transparent;
+  padding: 32px;
+  box-sizing: border-box;
+  text-align: center;
+  pointer-events: none;
+  z-index: 1;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', 'Consolas', 'Courier New', monospace;
+}
+#scenario.fade-in {
+  animation: fadeInScenario 0.75s ease;
+}
+
+@keyframes fadeInScenario {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .tooltip {
@@ -171,10 +214,11 @@ main#app {
   pointer-events: none;
   transition: transform 0.3s;
   transform: translateX(-100%);
-  z-index: 1;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-clip: padding-box;
 }
 
 .rect:hover .tooltip {
@@ -183,6 +227,7 @@ main#app {
 }
 
 .home-header {
+  font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', 'Consolas', 'Courier New', monospace;
   margin-top: 200px;   /* Increase this value to move the header further down */
   margin-bottom: 0;
 }

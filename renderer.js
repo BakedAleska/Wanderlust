@@ -36,6 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function startScenario() {
     window.electronAPI.restartGame().then(() => {
+      scenarioSection.classList.add('fade-in');
       scenarioSection.setAttribute('aria-hidden', 'false');
       scenarioSection.style.display = '';
       homeSection.setAttribute('aria-hidden', 'true');
@@ -45,6 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
         document.getElementById('choice-1').textContent = choices[0];
         document.getElementById('choice-2').textContent = choices[1];
         resetChoiceButtons();
+        setTimeout(() => scenarioSection.classList.remove('fade-in'), 500);
       });
     });
   }
@@ -115,6 +117,13 @@ window.addEventListener('DOMContentLoaded', () => {
       document.getElementById('choice-1').textContent = choices[0];
       document.getElementById('choice-2').textContent = choices[1];
       if (prompt === 'Thank you for playing!') {
+        import('canvas-confetti').then(confetti => {
+          confetti.default({
+            particleCount: 150,
+            spread: 90,
+            origin: { y: 0.6 }
+          });
+        });
         showEndGameButtons();
       }
     });
@@ -127,6 +136,13 @@ window.addEventListener('DOMContentLoaded', () => {
       document.getElementById('choice-1').textContent = choices[0];
       document.getElementById('choice-2').textContent = choices[1];
       if (prompt === 'Thank you for playing!') {
+        import('canvas-confetti').then(confetti => {
+          confetti.default({
+            particleCount: 150,
+            spread: 90,
+            origin: { y: 0.6 }
+          });
+        });
         showEndGameButtons();
       }
     });
