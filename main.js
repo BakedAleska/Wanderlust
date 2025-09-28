@@ -7,7 +7,6 @@ function create_window() {
         width: 800,
         height: 600,
         autoHideMenuBar: true,
-        fullscreen: true,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,
