@@ -5,13 +5,15 @@ const sHandler = require('./scenario-handler.js');
 const userDataPath = path.join(app.getPath('userData'), 'user-data.json');
 
 function initUserData() {
-    if (!fs.existsSync(userDataPath) || fs.readFileSync(userDataPath, 'utf8').trim() === '') {
-        fs.writeFileSync(userDataPath, JSON.stringify({ Page: 0 }, null, 2));
-    }
+  fs.writeFileSync(userDataPath, JSON.stringify({ page: 0 }, null, 2));
 }
 
 ipcMain.handle('get-scenario', () => {
     return sHandler.begin();
+});
+
+ipcMain.handle('get-choices', () => {
+    return sHandler.generate_choice();
 });
 
 if (process.env.NODE_ENV === 'development') {
@@ -52,7 +54,6 @@ function create_window() {
 app.whenReady().then(() => {
     initUserData();
     create_window();
-    sHandler.begin();
 });
 
 app.on('window-all-closed', () => {
