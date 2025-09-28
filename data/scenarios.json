@@ -16,13 +16,73 @@
         },
         {
           "id": "hr_p1",
+          "category": "heroic",
+          "text": "A child is trapped inside a partially collapsed home. What do you do?"
+        },
+        {
+          "id": "hr_p2",
+          "category": "heroic",
+          "text": "Residents are stranded on rooftops. How will you get them down safely?"
+        },
+        {
+          "id": "hr_p3",
+          "category": "heroic",
+          "text": "The storm knocked out communications. How do you reestablish contact with other rescue teams?"
+        },
+        {
+          "id": "hr_p4",
+          "category": "heroic",
+          "text": "An injured survivor begs you to help, but danger is still present. What’s your move?"
+        },
+        {
+          "id": "hr_p5",
           "category": "cautious",
           "text": "Weather conditions are worsening. How do you ensure your team's safety while continuing relief efforts?"
         },
         {
-          "id": "hr_p2",
+          "id": "hr_p6",
+          "category": "cautious",
+          "text": "Supplies are running low. How do you ration resources without causing panic?"
+        },
+        {
+          "id": "hr_p7",
+          "category": "cautious",
+          "text": "The floodwater may be contaminated. How do you keep your team and survivors safe from disease?"
+        },
+        {
+          "id": "hr_p8",
+          "category": "cautious",
+          "text": "Some buildings are unstable but house survivors. How do you handle the rescue?"
+        },
+        {
+          "id": "hr_p9",
+          "category": "cautious",
+          "text": "Your team is exhausted after hours of work. How do you balance rest with ongoing emergencies?"
+        },
+        {
+          "id": "hr_p10",
           "category": "community",
           "text": "Local volunteers want to help but lack training. How do you involve them?"
+        },
+        {
+          "id": "hr_p11",
+          "category": "community",
+          "text": "Displaced families need shelter. How do you coordinate housing with locals?"
+        },
+        {
+          "id": "hr_p12",
+          "category": "community",
+          "text": "Food distribution is chaotic. How do you organize it fairly?"
+        },
+        {
+          "id": "hr_p13",
+          "category": "community",
+          "text": "Children are frightened and panicking. How do you comfort them and keep them safe?"
+        },
+        {
+          "id": "hr_p14",
+          "category": "community",
+          "text": "Community leaders want to take charge. How do you collaborate without losing control?"
         }
       ],
       "answers": [
@@ -38,23 +98,143 @@
         },
         {
           "id": "hr_a3",
+          "category": "heroic",
+          "text": "Climb onto rooftops using improvised ladders to save stranded residents."
+        },
+        {
+          "id": "hr_a4",
+          "category": "heroic",
+          "text": "Swim through floodwaters to reach survivors despite the hazards."
+        },
+        {
+          "id": "hr_a5",
+          "category": "heroic",
+          "text": "Carry the injured out on your back even under threat of collapse."
+        },
+        {
+          "id": "hr_a6",
+          "category": "heroic",
+          "text": "Borrow a local boat and lead a daring water rescue mission."
+        },
+        {
+          "id": "hr_a7",
+          "category": "heroic",
+          "text": "Rush into the collapsed home with minimal equipment to save the child immediately."
+        },
+        {
+          "id": "hr_a8",
+          "category": "heroic",
+          "text": "Signal for air support by climbing a radio tower despite risks."
+        },
+        {
+          "id": "hr_a9",
+          "category": "heroic",
+          "text": "Push ahead with no rest until every last survivor is accounted for."
+        },
+        {
+          "id": "hr_a10",
+          "category": "heroic",
+          "text": "Dive underwater to rescue someone trapped beneath debris."
+        },
+        {
+          "id": "hr_a11",
           "category": "cautious",
           "text": "Wait for first responders with proper gear before entering."
         },
         {
-          "id": "hr_a4",
+          "id": "hr_a12",
           "category": "cautious",
           "text": "Set up checkpoints to monitor team members and ensure no one is exposed to unnecessary risk."
         },
         {
-          "id": "hr_a5",
+          "id": "hr_a13",
+          "category": "cautious",
+          "text": "Distribute supplies slowly, keeping reserves hidden for emergencies."
+        },
+        {
+          "id": "hr_a14",
+          "category": "cautious",
+          "text": "Set up a rationing schedule and document all distributions transparently."
+        },
+        {
+          "id": "hr_a15",
+          "category": "cautious",
+          "text": "Avoid unstable structures until engineers can confirm safety."
+        },
+        {
+          "id": "hr_a16",
+          "category": "cautious",
+          "text": "Provide clean bottled water only, warning survivors against floodwater."
+        },
+        {
+          "id": "hr_a17",
+          "category": "cautious",
+          "text": "Assign rest shifts for rescuers to avoid burnout."
+        },
+        {
+          "id": "hr_a18",
+          "category": "cautious",
+          "text": "Use drones to scout dangerous areas before sending in people."
+        },
+        {
+          "id": "hr_a19",
+          "category": "cautious",
+          "text": "Evacuate slowly and methodically, prioritizing the safest routes."
+        },
+        {
+          "id": "hr_a20",
+          "category": "cautious",
+          "text": "Request reinforcements from nearby towns before continuing."
+        },
+        {
+          "id": "hr_a21",
           "category": "community",
           "text": "Organize a community meeting and assign roles."
         },
         {
-          "id": "hr_a6",
+          "id": "hr_a22",
           "category": "community",
           "text": "Provide basic training sessions for volunteers before deploying them."
+        },
+        {
+          "id": "hr_a23",
+          "category": "community",
+          "text": "Work with local schools and churches to turn them into temporary shelters."
+        },
+        {
+          "id": "hr_a24",
+          "category": "community",
+          "text": "Encourage families with safe housing to temporarily host displaced neighbors."
+        },
+        {
+          "id": "hr_a25",
+          "category": "community",
+          "text": "Assign volunteers to food distribution lines to maintain order."
+        },
+        {
+          "id": "hr_a26",
+          "category": "community",
+          "text": "Create activity groups for children to calm them and keep them occupied."
+        },
+        {
+          "id": "hr_a27",
+          "category": "community",
+          "text": "Translate critical instructions into multiple languages for inclusivity."
+        },
+        {
+          "id": "hr_a28",
+          "category": "community",
+          "text": "Set up a neighborhood watch-style team to ensure safety in shelters."
+        },
+        {
+          "id": "hr_a29",
+          "category": "community",
+          "text": "Let community leaders run logistics while you focus on rescue efforts."
+        },
+        {
+          "id": "hr_a30",
+          "category": "community",
+          "text": "Hold nightly briefings to keep everyone informed and motivated."
         }
       ]
     }

@@ -12,6 +12,27 @@ function increment_page() {
   fs.writeFileSync(userDataPath, JSON.stringify(data, null, 2));
 }
 
+function append_data(type, value) {
+  let data = {};
+  try {
+    data = JSON.parse(fs.readFileSync(userDataPath));
+  } catch {}
+
+  if (type === 'scenario') {
+    if (!Array.isArray(data.scenario_history)) {
+      data.scenario_history = [];
+    }
+    data.scenario_history.push(value);
+  } else if (type === 'answer') {
+    if (!Array.isArray(data.answer_history)) {
+      data.answer_history = [];
+    }
+    data.answer_history.push(value);
+  }
+
+  fs.writeFileSync(userDataPath, JSON.stringify(data, null, 2));
+}
+
 function get_data(key) {
   try {
     const data = JSON.parse(fs.readFileSync(userDataPath));
@@ -23,5 +44,6 @@ function get_data(key) {
 
 module.exports = {
   increment_page,
-  get_data
-};
+  get_data,
+  append_data
+}

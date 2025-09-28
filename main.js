@@ -1,34 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const fs = require('fs');
-const sHandler = require('./scenario-handler.js');
-const userDataPath = path.join(app.getPath('userData'), 'user-data.json');
-
-function initUserData() {
-  fs.writeFileSync(userDataPath, JSON.stringify({ page: 0 }, null, 2));
-}
-
-ipcMain.handle('get-scenario', () => {
-    return sHandler.begin();
-});
-
-ipcMain.handle('get-choices', () => {
-    return sHandler.generate_choice();
-});
-
-if (process.env.NODE_ENV === 'development') {
-    try {
-        require('electron-reload')(__dirname, {
-            electron: require('electron').path,
-            files: [
-                path.join(__dirname, 'main.js'),
-                path.join(__dirname, 'index.html')
-            ]
-        });
-    } catch (err) {
-        console.warn('electron-reload not available:', err.message);
-    }
-}
 
 function create_window() {
     const win = new BrowserWindow({
@@ -52,6 +24,42 @@ function create_window() {
 }
 
 app.whenReady().then(() => {
+    ipcMain.handle('restart-game', () => {
+        // Reset user-data.json
+        const fs = require('fs');
+        fs.writeFileSync(userDataPath, JSON.stringify({ page: 0, scenario_history: [], answer_history: [] }, null, 2));
+        return true;
+    });
+    const userDataPath = path.join(app.getPath('userData'), 'user-data.json');
+    const sHandler = require('./scenario-handler.js');
+    const userDataHandler = require('./user-data-handler.js');
+
+        function initUserData() {
+            fs.writeFileSync(userDataPath, JSON.stringify({ page: 0, scenario_history: [], answer_history: [] }, null, 2));
+        }
+
+    ipcMain.handle('get-scenario', () => {
+        return sHandler.handle_scenario();
+    });
+
+    ipcMain.handle('append-answer', (event, answerText) => {
+        userDataHandler.append_data('answer', answerText);
+    });
+
+    if (process.env.NODE_ENV === 'development') {
+        try {
+            require('electron-reload')(__dirname, {
+                electron: require('electron').path,
+                files: [
+                    path.join(__dirname, 'main.js'),
+                    path.join(__dirname, 'index.html')
+                ]
+            });
+        } catch (err) {
+            console.warn('electron-reload not available:', err.message);
+        }
+    }
+
     initUserData();
     create_window();
 });
