@@ -1,4 +1,3 @@
-const { renderScenario } = require("./scenarioHandler");
 
 // Once the DOM is ready, attach.
 window.addEventListener('DOMContentLoaded', () => {
@@ -18,6 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
     scenarioSection.style.display = 'none';
     homeSection.setAttribute('aria-hidden', 'false');
     homeSection.style.display = '';
+    console.log("Home button clicked.")
   });
 
   document.querySelectorAll('.rect').forEach(rect => {
@@ -27,9 +27,9 @@ window.addEventListener('DOMContentLoaded', () => {
       scenarioSection.style.display = '';
       homeSection.setAttribute('aria-hidden', 'true');
       homeSection.style.display = 'none';
+      
     });
   });
 
-  renderScenario()
 
 });
