@@ -35,6 +35,8 @@ const create_window = () => {
 
     win.maximize();
 
+    win.webContents.send('scenario-text', 'Scenario here');
+
     win.loadFile('index.html')
 }
 
