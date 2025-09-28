@@ -18,10 +18,9 @@ window.addEventListener('DOMContentLoaded', () => {
     homeSection.style.display = '';
   });
 
-  // Set up click listeners for all rectangles
   document.querySelectorAll('.rect').forEach(rect => {
     rect.addEventListener('click', () => {
-      // Example: switch to scenario view when a rectangle is clicked
+      // TEMP (Switch to exact scenario view, must be switched to adapt.)
       scenarioSection.setAttribute('aria-hidden', 'false');
       scenarioSection.style.display = '';
       homeSection.setAttribute('aria-hidden', 'true');

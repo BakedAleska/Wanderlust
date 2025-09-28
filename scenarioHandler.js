@@ -6,7 +6,6 @@ function displayData(){
     console.log(JSON.stringify(scenariosData, null, 2));
 }
 
-
 function initializeScenario(){
     const scenarioTypeList = JSON.stringify(scenariosData.scenarios[0].categories, null, 2)
     const n = Math.floor(Math.random() * 3);
