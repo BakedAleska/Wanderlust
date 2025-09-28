@@ -1,3 +1,5 @@
+const { renderScenario } = require("./scenarioHandler");
+
 // Once the DOM is ready, attach.
 window.addEventListener('DOMContentLoaded', () => {
   const home_btn = document.querySelector('.menu-button');
@@ -27,4 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
       homeSection.style.display = 'none';
     });
   });
+
+  renderScenario()
+
 });

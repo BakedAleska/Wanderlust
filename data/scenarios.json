@@ -10,29 +10,19 @@
       ],
       "prompts": [
         {
-          "id": "hr_p1",
+          "id": "hr_p0",
           "category": "heroic",
           "text": "A flooded neighborhood is in desperate need of help. How will you approach the rescue?"
         },
         {
+          "id": "hr_p1",
+          "category": "cautious",
+          "text": "Weather conditions are worsening. How do you ensure your team's safety while continuing relief efforts?"
+        },
+        {
           "id": "hr_p2",
-          "category": "logistical",
-          "text": "Resources are running low in the shelters. What's your next move?"
-        },
-        {
-          "id": "hr_p3",
-          "category": "medical",
-          "text": "Injured survivors are arriving faster than medical staff can treat them. What do you prioritize?"
-        },
-        {
-          "id": "hr_p4",
           "category": "community",
           "text": "Local volunteers want to help but lack training. How do you involve them?"
-        },
-        {
-          "id": "hr_p5",
-          "category": "strategic",
-          "text": "A second storm is forecasted to hit soon. How do you prepare?"
         }
       ],
       "answers": [
@@ -53,8 +43,8 @@
         },
         {
           "id": "hr_a4",
-          "category": "logistical",
-          "text": "Coordinate with local authorities to redirect resources."
+          "category": "cautious",
+          "text": "Set up checkpoints to monitor team members and ensure no one is exposed to unnecessary risk."
         },
         {
           "id": "hr_a5",
@@ -63,28 +53,8 @@
         },
         {
           "id": "hr_a6",
-          "category": "medical",
-          "text": "Set up a triage tent to prioritize critical patients."
-        },
-        {
-          "id": "hr_a7",
-          "category": "resourceful",
-          "text": "Use social media to crowdsource supplies."
-        },
-        {
-          "id": "hr_a8",
-          "category": "optimistic",
-          "text": "Reassure everyone that help is on the way."
-        },
-        {
-          "id": "hr_a9",
-          "category": "strategic",
-          "text": "Evacuate vulnerable areas before the next storm arrives."
-        },
-        {
-          "id": "hr_a10",
-          "category": "strategic",
-          "text": "Double emergency drills for all shelter staff."
+          "category": "community",
+          "text": "Provide basic training sessions for volunteers before deploying them."
         }
       ]
     }
