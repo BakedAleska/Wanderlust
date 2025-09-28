@@ -17,19 +17,13 @@
 
     <main id="app" role="main">
       <!-- SCENARIO PAGE -->
-      <section id="scenario" class="view" aria-hidden="true">
-        <div class="top-half">
-          <p class="scenario-paragraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+      <section id="scenario" class="view" aria-hidden="true" style="position:relative;">
+        <div id="particles-js" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;"></div>
+        <div class="top-half" style="position:relative;z-index:1;">
+          <p class="scenario-paragraph"></p>
         </div>
 
-        <div class="bottom-half">
+        <div class="bottom-half" style="position:relative;z-index:1;">
           <button id="choice-1" class="choice-button">First choice.</button>
           <button id="choice-2" class="choice-button">Second choice.</button>
         </div>
@@ -37,12 +31,32 @@
       <section id="home" class="view" aria-hidden="true">
         <h1 class="home-header">Choose your scenario.</h1>
         <div class="scroll-container">
-          <div class="rect">
-            <div class="tooltip">This is the description of the thingy</div>
+         <div class="rect">
+          <div class="tooltip">
+            A powerful hurricane has devastated the city, flooding streets and destroying homes. 
+            As the leader of the relief effort, you must coordinate rescue teams, allocate scarce resources, 
+            and make tough decisions that affect survivors’ lives and the city’s recovery. 
+            Manage crises, support your team, and collaborate with volunteers to restore order 
+            and inspire hope amid chaos.
           </div>
+        </div>
+
         </div>
       </section>
     </main>
+    <script src="node_modules/particles.js/particles.js"></script>
+    <script>
+      // Only initialize particles.js on the scenario screen
+      document.addEventListener('DOMContentLoaded', function() {
+        if (document.getElementById('particles-js')) {
+          fetch('particles-config.json')
+            .then(response => response.json())
+            .then(config => {
+              window.particlesJS('particles-js', config);
+            });
+        }
+      });
+    </script>
     <script src="renderer.js"></script>
   </body>
 </html>

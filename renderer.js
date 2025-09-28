@@ -60,6 +60,14 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function showEndGameButtons() {
+    // Confetti effect when game ends
+    import('canvas-confetti').then(confetti => {
+      confetti.default({
+        particleCount: 150,
+        spread: 90,
+        origin: { y: 0.6 }
+      });
+    });
     choice_1_btn.textContent = 'Choose a different scenario';
     choice_2_btn.textContent = 'Replay';
     choice_1_btn.onclick = () => {

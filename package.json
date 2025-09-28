@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/BakedAleska/Wanderlust/issues"
   },
-  "homepage": "https://github.com/BakedAleska/Wanderlust#readme"
+  "homepage": "https://github.com/BakedAleska/Wanderlust#readme",
+  "dependencies": {
+    "canvas-confetti": "^1.9.3",
+    "particles.js": "^2.0.0"
+  }
 }

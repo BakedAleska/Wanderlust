@@ -103,9 +103,20 @@ main#app {
 }
 
 .choice-button {
-  height: 55px;
-  width: 300px;
+  color: #ffffff;
+  background-color: #222;
+  height: 100px;
+  width: 350px;
   font-size: 16px;
+  border-radius: 16px;
+  transform: scale();
+  font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', 'Consolas', 'Courier New', monospace;
+  transition: height 0.2s, width 0.2s;
+}
+
+.choice-button:hover {
+  height: 120px;
+  width: 370px;
 }
 
 .scenario-paragraph {
