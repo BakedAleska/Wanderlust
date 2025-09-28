@@ -20,6 +20,10 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log("Home button clicked.")
   });
 
+  window.electronAPI.getScenario().then(scenarioText => {
+    document.querySelector('.scenario-paragraph').textContent = scenarioText;
+  });
+
   document.querySelectorAll('.rect').forEach(rect => {
     rect.addEventListener('click', () => {
       // TEMP (Switch to exact scenario view, must be switched to adapt.)
@@ -30,6 +34,4 @@ window.addEventListener('DOMContentLoaded', () => {
       
     });
   });
-
-
 });

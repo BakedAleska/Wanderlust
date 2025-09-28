@@ -1,8 +1,12 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path');
 const sHandler = require('./scenarioHandler.js')
+const { ipcMain } = require('electron');
 
 if (process.env.NODE_ENV === 'development') {
+ipcMain.handle('get-scenario', () => {
+    return sHandler.initializeScenario();
+});
     try {
         require('electron-reload')(__dirname, {
             electron: require('electron').path,

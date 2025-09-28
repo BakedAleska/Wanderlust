@@ -7,29 +7,29 @@ function displayData(){
 }
 
 function initializeScenario(){
-    const scenarioTypeList = JSON.stringify(scenariosData.scenarios[0].categories, null, 2)
+    const prompts = scenariosData.scenarios[0].prompts;
     const n = Math.floor(Math.random() * 3);
 
     let typeSelection;
-    let prompt = JSON.stringify(scenariosData.scenarios[0].prompts, null, 2);
-    
+    let promptChosen;
+
     switch (n) {
         case 0:
-            typeSelection = "heroic"
-            promptChosen = prompt[0].text;
+            typeSelection = "heroic";
+            promptChosen = prompts[0].text;
             break;
         case 1:
-            typeSelection = "cautious"
-            promptChosen = prompt[1].text;
+            typeSelection = "cautious";
+            promptChosen = prompts[1].text;
             break;
         case 2:
-            typeSelection = "community"
-            promptChosen = prompt[2].text;
+            typeSelection = "community";
+            promptChosen = prompts[2].text;
             break;
     }
 
-    console.log(typeSelection)    
-    return promptChosen
+    console.log(promptChosen);
+    return promptChosen;
 }
 function renderScenario(selector = '.scenario-paragraph'){
     const paragraph = document.querySelector('.scenario-paragraph');
