@@ -1,12 +1,20 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
-const sHandler = require('./scenarioHandler.js')
-const { ipcMain } = require('electron');
+const fs = require('fs');
+const sHandler = require('./scenario-handler.js');
+const userDataPath = path.join(app.getPath('userData'), 'user-data.json');
+
+function initUserData() {
+    if (!fs.existsSync(userDataPath) || fs.readFileSync(userDataPath, 'utf8').trim() === '') {
+        fs.writeFileSync(userDataPath, JSON.stringify({ Page: 0 }, null, 2));
+    }
+}
+
+ipcMain.handle('get-scenario', () => {
+    return sHandler.begin();
+});
 
 if (process.env.NODE_ENV === 'development') {
-ipcMain.handle('get-scenario', () => {
-    return sHandler.initializeScenario();
-});
     try {
         require('electron-reload')(__dirname, {
             electron: require('electron').path,
@@ -14,13 +22,13 @@ ipcMain.handle('get-scenario', () => {
                 path.join(__dirname, 'main.js'),
                 path.join(__dirname, 'index.html')
             ]
-        })
+        });
     } catch (err) {
-        console.warn('electron-reload not available:', err.message)
+        console.warn('electron-reload not available:', err.message);
     }
 }
 
-const create_window = () => {
+function create_window() {
     const win = new BrowserWindow({
         width: 800,
         height: 600,
@@ -31,24 +39,22 @@ const create_window = () => {
             contextIsolation: true,
             nodeIntegration: false,
         }
-    })
+    });
 
     try {
-        win.setMenuBarVisibility(false)
+        win.setMenuBarVisibility(false);
     } catch (err) {}
 
     win.maximize();
-
-    win.webContents.send('scenario-text', 'Scenario here');
-
-    win.loadFile('index.html')
+    win.loadFile('index.html');
 }
 
-app.whenReady().then(() =>  {
-    create_window()
-    sHandler.initializeScenario()
-})
+app.whenReady().then(() => {
+    initUserData();
+    create_window();
+    sHandler.begin();
+});
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') app.quit()
-})
+    if (process.platform !== 'darwin') app.quit();
+});
